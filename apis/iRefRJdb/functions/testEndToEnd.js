@@ -11,7 +11,9 @@ Overview
 Instructions
 ============
     I. Setup
-        1. Stop LAC and restore the databases from iProto zip
+        1. Stop LAC and restore the databases:
+            a. cd %lac-install%/CALiveAPICreator/jetty.repository/teamspaces/iFramework/apis/iRefRJdb/UserFiles
+            b. sh copyDBs.sh
         2. Activate the 2 timers (here, iQ)
     II. Run this function
         1. It is re-runnable, by virtue of *serious* cleanup action - see cleanUp_deleteTestRows(), below.
