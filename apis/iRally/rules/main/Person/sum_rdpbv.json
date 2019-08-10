@@ -1,0 +1,16 @@
+{
+  "name": "sum_rdpbv",
+  "entity": "Person",
+  "isActive": true,
+  "ruleType": "sum",
+  "attribute": "points_assigned",
+  "roleToChildren": "Story_List",
+  "childAttribute": "points",
+  "qualification": null,
+  "isJIT": false,
+  "isAutoTitle": true,
+  "title": "points_assigned = sum(Story_List.points)",
+  "comments": null,
+  "topics": [
+  ]
+}

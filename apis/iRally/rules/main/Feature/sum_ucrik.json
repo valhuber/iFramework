@@ -1,0 +1,16 @@
+{
+  "name": "sum_ucrik",
+  "entity": "Feature",
+  "isActive": true,
+  "ruleType": "sum",
+  "attribute": "total_points",
+  "roleToChildren": "Story_List",
+  "childAttribute": "points",
+  "qualification": null,
+  "isJIT": false,
+  "isAutoTitle": true,
+  "title": "total_points = sum(Story_List.points)",
+  "comments": null,
+  "topics": [
+  ]
+}

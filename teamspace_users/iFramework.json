@@ -1,0 +1,13 @@
+{
+  "name": "iFramework",
+  "fullname": "API developer for TeamSpace - iFramework",
+  "isActive": true,
+  "comments": null,
+  "keyLifetimeSeconds": null,
+  "passwordHash": "cOkgbHV3Ptvo80/HcXPxM7QZqhUIPnIIsry6yxLaKGR9TgTObZnERSkcpOM/k6ItHRJGpUdEaTZleuig/TmXgg==",
+  "passwordSalt": "4hRfErCoYdIXY60iF5g8O4C0b1wOK64Jr7o2LkaE",
+  "roles": [
+    "Account admin",
+    "Data admin"
+  ]
+}

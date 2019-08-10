@@ -1,0 +1,46 @@
+{
+  "name": "RallySyncToJiraTarget",
+  "description": "Sample Data, as copied from Rally via iQ (works with Lookup):\n\n{\"story_name\":\"Test Manual Rally Story 2\",\"points\":1,\"story_description\":null,\"feature_name\":\"Rally Feature\",\"category_ident\":2,\"assigned_to\":\"Joe\"}",
+  "siblingRank": 100,
+  "resourceType": "TableBased",
+  "prefix": "dsp_jira",
+  "entity": "Story",
+  "isCollection": true,
+  "filter": null,
+  "order": null,
+  "useSchemaAttributes": false,
+  "attributes": [
+    {
+      "name": "assigned_person_name",
+      "attribute": "person_name",
+      "description": "Lookups (FIXME - null makes this fail)",
+      "isLookupKey": true,
+      "roleToParent": "Person"
+    },
+    {
+      "name": "story_name",
+      "attribute": "name",
+      "description": "Alias (mapping)",
+      "isKey": false
+    },
+    {
+      "name": "story_description",
+      "attribute": "description",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "points",
+      "attribute": null,
+      "description": "Rally Points, to cal jira days (transformation)",
+      "jsonType": "number",
+      "isHidden": false
+    },
+    {
+      "name": "ident",
+      "attribute": "ident",
+      "description": "Convention",
+      "isKey": false
+    }
+  ]
+}

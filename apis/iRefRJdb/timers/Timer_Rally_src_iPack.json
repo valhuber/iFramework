@@ -1,0 +1,14 @@
+{
+  "name": "Timer_Rally_src_iPack",
+  "isRepeating": true,
+  "startTimestampOffset": null,
+  "endTimestampOffset": null,
+  "isNoOverlap": false,
+  "isActive": false,
+  "description": "common_iPack_srcTimer.timerFindProcessChanges(\"Rally Timer\");\n\nClick Test…",
+  "maximumLogAgeSeconds": 2592000,
+  "isSingleServer": false,
+  "crontab": "/5 * * * * ? *",
+  "isLogErrorOnly": false,
+  "loggingLevel": "Fine"
+}

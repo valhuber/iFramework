@@ -1,0 +1,57 @@
+{
+  "name": "JiraSourceResource",
+  "description": null,
+  "siblingRank": 100,
+  "resourceType": "TableBased",
+  "prefix": "dsp_jira",
+  "entity": "Story",
+  "isCollection": true,
+  "filter": null,
+  "order": null,
+  "useSchemaAttributes": false,
+  "attributes": [
+    {
+      "name": "ident",
+      "attribute": "ident",
+      "description": "Convention (of resource, not db/dsp)",
+      "isKey": false
+    },
+    {
+      "name": "src_name",
+      "attribute": "name",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "src_last_changed",
+      "attribute": "last_changed",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "src_changed_by",
+      "attribute": "changed_by",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "src_days",
+      "attribute": "days",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "src_description",
+      "attribute": "description",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "assigned_person_name",
+      "attribute": "person_name",
+      "description": null,
+      "isLookupKey": true,
+      "roleToParent": "Person"
+    }
+  ]
+}

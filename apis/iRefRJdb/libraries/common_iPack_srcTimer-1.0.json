@@ -1,0 +1,10 @@
+{
+  "name": "common_iPack_srcTimer",
+  "version": "1.0",
+  "isUsedByProject": true,
+  "title": "common_iPack_srcTimer",
+  "description": "Called by timer to find changed rows, sync to target resource",
+  "groupName": "newlib",
+  "docsURL": null,
+  "referenceURL": null
+}

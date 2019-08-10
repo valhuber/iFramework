@@ -1,0 +1,7 @@
+{
+  "name": "iReference Jira to Rally (DBs)",
+  "urlFragment": "iRefRJdb",
+  "comments": "Integrates Rally / Jira (virtual: as DBs) - see testEndToEnd.",
+  "isEnabled": true,
+  "authProviderName": "Built-in authentication"
+}

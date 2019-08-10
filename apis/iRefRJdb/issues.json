@@ -1,0 +1,12 @@
+[
+  {
+    "entity_name": "admin:resource_attributes",
+    "description": "The resource SyncJiraStories has attribute story_name defined for a column story_name that does not exist in table Story.",
+    "parameters": "SyncJiraStories,story_name,story_name,Story",
+    "status": "O",
+    "problemType": "Resource has attribute for non-existent column",
+    "rootObject": null,
+    "objectName": "name",
+    "resolution": null
+  }
+]

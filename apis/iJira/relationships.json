@@ -1,0 +1,30 @@
+[
+  {
+    "parentEntity": "main:Epic",
+    "childEntity": "main:Story",
+    "roleToParent": "Epic",
+    "roleToChild": "Story_List",
+    "deleteRule": "No Action",
+    "updateRule": "No Action",
+    "parentColumns": [
+      "ident"
+    ],
+    "childColumns": [
+      "epic_ident"
+    ]
+  },
+  {
+    "parentEntity": "main:Person",
+    "childEntity": "main:Story",
+    "roleToParent": "Person",
+    "roleToChild": "Story_List",
+    "deleteRule": "No Action",
+    "updateRule": "No Action",
+    "parentColumns": [
+      "ident"
+    ],
+    "childColumns": [
+      "assigned_ident"
+    ]
+  }
+]

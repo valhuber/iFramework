@@ -1,0 +1,14 @@
+{
+  "name": "formula_onqhs",
+  "entity": "Story",
+  "isActive": true,
+  "ruleType": "formula",
+  "attribute": "last_changed",
+  "codeType": "JavaScript",
+  "isJIT": false,
+  "isAutoTitle": true,
+  "title": "last_changed = return new Date();",
+  "comments": null,
+  "topics": [
+  ]
+}

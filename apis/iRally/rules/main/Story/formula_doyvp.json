@@ -1,0 +1,14 @@
+{
+  "name": "formula_doyvp",
+  "entity": "Story",
+  "isActive": true,
+  "ruleType": "formula",
+  "attribute": "last_changed",
+  "codeType": "JavaScript",
+  "isJIT": false,
+  "isAutoTitle": false,
+  "title": "Date calc",
+  "comments": null,
+  "topics": [
+  ]
+}

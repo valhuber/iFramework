@@ -1,0 +1,44 @@
+[
+  {
+    "parentEntity": "main:Category",
+    "childEntity": "main:Feature",
+    "roleToParent": "Category",
+    "roleToChild": "Feature_List",
+    "deleteRule": "No Action",
+    "updateRule": "No Action",
+    "parentColumns": [
+      "ident"
+    ],
+    "childColumns": [
+      "category_ident"
+    ]
+  },
+  {
+    "parentEntity": "main:Feature",
+    "childEntity": "main:Story",
+    "roleToParent": "Feature",
+    "roleToChild": "Story_List",
+    "deleteRule": "No Action",
+    "updateRule": "No Action",
+    "parentColumns": [
+      "ident"
+    ],
+    "childColumns": [
+      "feature_ident"
+    ]
+  },
+  {
+    "parentEntity": "main:Person",
+    "childEntity": "main:Story",
+    "roleToParent": "Person",
+    "roleToChild": "Story_List",
+    "deleteRule": "No Action",
+    "updateRule": "No Action",
+    "parentColumns": [
+      "ident"
+    ],
+    "childColumns": [
+      "assigned_ident"
+    ]
+  }
+]

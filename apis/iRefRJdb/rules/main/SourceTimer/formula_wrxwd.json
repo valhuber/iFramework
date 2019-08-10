@@ -1,0 +1,14 @@
+{
+  "name": "formula_wrxwd",
+  "entity": "SourceTimer",
+  "isActive": true,
+  "ruleType": "formula",
+  "attribute": "last_run",
+  "codeType": "JavaScript",
+  "isJIT": false,
+  "isAutoTitle": true,
+  "title": "last_run = return new Date();",
+  "comments": null,
+  "topics": [
+  ]
+}

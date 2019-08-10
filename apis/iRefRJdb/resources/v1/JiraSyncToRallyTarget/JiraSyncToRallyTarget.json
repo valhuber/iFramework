@@ -1,0 +1,52 @@
+{
+  "name": "JiraSyncToRallyTarget",
+  "description": null,
+  "siblingRank": 100,
+  "resourceType": "TableBased",
+  "prefix": "dsp_rally",
+  "entity": "Story",
+  "isCollection": true,
+  "filter": null,
+  "order": null,
+  "useSchemaAttributes": false,
+  "attributes": [
+    {
+      "name": "src_name",
+      "attribute": "story_name",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "src_last_changed",
+      "attribute": "last_changed",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "src_changed_by",
+      "attribute": "changed_by",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "src_description",
+      "attribute": "story_description",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "src_days",
+      "attribute": null,
+      "description": "put event computes points",
+      "jsonType": "number",
+      "isHidden": false
+    },
+    {
+      "name": "assigned_person_name",
+      "attribute": "person_name",
+      "description": null,
+      "isLookupKey": true,
+      "roleToParent": "Person"
+    }
+  ]
+}

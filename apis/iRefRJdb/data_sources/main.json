@@ -1,0 +1,217 @@
+{
+  "name": "main",
+  "prefix": "main",
+  "title": "Derby/JavaDB",
+  "databaseType": "DERBY",
+  "comments": null,
+  "isActive": true,
+  "isLogErrors": false,
+  "isSchemaEditable": true,
+  "isSupportBoolean": false,
+  "useDefinedModel": false,
+  "isReadOnly": false,
+  "useJNDIDataSource": false,
+  "url": "jdbc:derby:iReferenceJR",
+  "catalog": null,
+  "schema": "PAVLOV",
+  "username": "PAVLOV",
+  "encryptedPassword": null,
+  "encryptedPasswordSalt": "j3k3VGjeWz2jARYuIEiTioBnKUuuBOZ6ZHpEpGWE",
+  "maximumConnections": 20,
+  "tableExcludes": null,
+  "tableIncludes": null,
+  "procedureExcludes": null,
+  "procedureIncludes": null,
+  "nonPersistentAttributes": {
+  },
+  "tableInfos": {
+    "SyncEntity": {
+      "virtualPrimaryKeyColumns": [
+        "sync_entity"
+      ],
+      "sequenceUsage": {
+      },
+      "extendedProperties": null
+    }
+  },
+  "viewInfos": {
+  },
+  "procedureInfos": {
+  },
+  "schemaCache": {
+    "serializedSchemaVersion": "Product 5.3.xx.{$espressoBuildNumber} Serialized MetaSchema 60",
+    "prefix": "main",
+    "properties": {
+      "catalog": null,
+      "schema": "PAVLOV",
+      "sqlStrategy": {
+        "sqlStrategyClassName": "com.kahuna.server.db.derby.SqlStrategyDerby",
+        "supportBoolean": false,
+        "databaseProductName": "Apache Derby",
+        "databaseProductVersion": "10.14.1.0 - (1808820)"
+      },
+      "tableViewFilteredCount": 0,
+      "procedureFilteredCount": 0,
+      "supportBoolean": false
+    },
+    "typeDefinitions": {
+      "CLOB": {
+        "modelType": "String",
+        "jdbcSqlType": 2005,
+        "maxLength": 2147483647
+      },
+      "INTEGER": {
+        "modelType": "IntegralNumber",
+        "jdbcSqlType": 4,
+        "numBytes": 4
+      },
+      "TIMESTAMP": {
+        "modelType": "Timestamp",
+        "jdbcSqlType": 93,
+        "precision": 9
+      },
+      "VARCHAR(100)": {
+        "modelType": "String",
+        "jdbcSqlType": 12,
+        "maxLength": 100
+      },
+      "VARCHAR(128)": {
+        "modelType": "String",
+        "jdbcSqlType": 12,
+        "maxLength": 128
+      },
+      "VARCHAR(16)": {
+        "modelType": "String",
+        "jdbcSqlType": 12,
+        "maxLength": 16
+      },
+      "VARCHAR(64)": {
+        "modelType": "String",
+        "jdbcSqlType": 12,
+        "maxLength": 64
+      }
+    },
+    "tables": [
+      {
+        "name": "SourceTimer",
+        "columns": [
+          {
+            "name": "ident",
+            "isAutoIncrement": true,
+            "isDefaulted": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "last_run",
+            "isNullable": true,
+            "attrTypeName": "TIMESTAMP"
+          },
+          {
+            "name": "notes",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(128)"
+          }
+        ],
+        "keys": [
+          {
+            "name": "PK_SourceTimer",
+            "isDatabasePrimary": true,
+            "columns": [
+              "ident"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "SyncEntity",
+        "columns": [
+          {
+            "name": "ident",
+            "isAutoIncrement": true,
+            "isDefaulted": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "sync_entity",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(64)"
+          },
+          {
+            "name": "notes",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(100)"
+          }
+        ],
+        "keys": [
+          {
+            "name": "PK_SyncEntity",
+            "isDatabasePrimary": true,
+            "columns": [
+              "ident"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "SyncMap",
+        "columns": [
+          {
+            "name": "ident",
+            "isAutoIncrement": true,
+            "isDefaulted": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "sync_entity",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(64)"
+          },
+          {
+            "name": "sync_left_ident",
+            "isNullable": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "sync_right_ident",
+            "isNullable": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "sync_left_curr_values",
+            "isNullable": true,
+            "attrTypeName": "CLOB"
+          },
+          {
+            "name": "sync_right_curr_values",
+            "isNullable": true,
+            "attrTypeName": "CLOB"
+          },
+          {
+            "name": "sync_left_changed_values",
+            "isNullable": true,
+            "attrTypeName": "CLOB"
+          },
+          {
+            "name": "sync_right_changed_values",
+            "isNullable": true,
+            "attrTypeName": "CLOB"
+          },
+          {
+            "name": "sync_last_from",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(16)"
+          }
+        ],
+        "keys": [
+          {
+            "name": "PK_SyncMap",
+            "isDatabasePrimary": true,
+            "columns": [
+              "ident"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

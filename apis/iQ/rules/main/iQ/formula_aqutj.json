@@ -1,0 +1,14 @@
+{
+  "name": "formula_aqutj",
+  "entity": "iQ",
+  "isActive": true,
+  "ruleType": "formula",
+  "attribute": "inserted_date",
+  "codeType": "JavaScript",
+  "isJIT": false,
+  "isAutoTitle": false,
+  "title": "Date on insertion",
+  "comments": null,
+  "topics": [
+  ]
+}

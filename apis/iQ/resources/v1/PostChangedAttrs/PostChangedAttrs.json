@@ -1,0 +1,12 @@
+{
+  "name": "PostChangedAttrs",
+  "description": "src-iPacks POST changed attrs here, later processed by the TimerPostTarget",
+  "siblingRank": 100,
+  "resourceType": "TableBased",
+  "prefix": "main",
+  "entity": "iQ",
+  "isCollection": true,
+  "filter": null,
+  "order": null,
+  "useSchemaAttributes": true
+}

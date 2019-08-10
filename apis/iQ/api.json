@@ -1,0 +1,7 @@
+{
+  "name": "iQ",
+  "urlFragment": "iQ",
+  "comments": "Integration Queue.",
+  "isEnabled": true,
+  "authProviderName": "Built-in authentication"
+}

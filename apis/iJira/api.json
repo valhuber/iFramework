@@ -1,0 +1,7 @@
+{
+  "name": "iJira",
+  "urlFragment": "iJira",
+  "comments": "Virtual Jira",
+  "isEnabled": true,
+  "authProviderName": "Built-in authentication"
+}

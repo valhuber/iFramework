@@ -1,0 +1,10 @@
+{
+  "name": "common_iPack_util",
+  "version": "1.0",
+  "isUsedByProject": true,
+  "title": "common_iPack_util",
+  "description": "Common iPack utility functions",
+  "groupName": "newlib",
+  "docsURL": null,
+  "referenceURL": null
+}

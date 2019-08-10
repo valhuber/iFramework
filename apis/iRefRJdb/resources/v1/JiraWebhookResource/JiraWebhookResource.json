@@ -1,0 +1,62 @@
+{
+  "name": "JiraWebhookResource",
+  "description": "Describes content of webhook, and how it maps to underlying source entity.",
+  "siblingRank": 100,
+  "resourceType": "TableBased",
+  "prefix": "dsp_jira",
+  "entity": "Story",
+  "isCollection": true,
+  "filter": null,
+  "order": null,
+  "useSchemaAttributes": false,
+  "attributes": [
+    {
+      "name": "wh_ident",
+      "attribute": "ident",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "wh_name",
+      "attribute": "name",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "wh_assigned_ident",
+      "attribute": "assigned_ident",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "wh_epic_ident",
+      "attribute": "epic_ident",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "wh_last_changed",
+      "attribute": "last_changed",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "wh_changed_by",
+      "attribute": "changed_by",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "wh_days",
+      "attribute": "days",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "wh_description",
+      "attribute": "description",
+      "description": null,
+      "isKey": false
+    }
+  ]
+}

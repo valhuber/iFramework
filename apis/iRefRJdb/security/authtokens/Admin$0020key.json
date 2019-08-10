@@ -1,0 +1,14 @@
+{
+  "name": "Admin key",
+  "authToken": "AdminKey",
+  "description": "Used for testing (behave as user, not iFramework).",
+  "userIdentifier": "sa",
+  "isActive": true,
+  "expiration": null,
+  "logging": "*=FINE",
+  "roles": [
+    "Full access"
+  ],
+  "globals": {
+  }
+}

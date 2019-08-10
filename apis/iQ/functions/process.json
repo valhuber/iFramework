@@ -1,0 +1,12 @@
+{
+  "name": "process",
+  "isActive": true,
+  "comments": "This is invoked from the TimerPostTarget, and from the Data Explorer, for iQ entries that are ready.\n\nThis function sets the status to Processing.\nThis activates the Process rule to post to the targetURL, and mark the Q done/error.\nIf done, it updates SyncState data to reflect current sync'd values.\n\nTBD: consider a name change... how is that matched to target?\nPerhaps Rally/Jira extended attributes, or an integration tables, or both....",
+  "returnType": "{\n  \"description\": \"This is an example of the type of data returned by this function\"\n}\n",
+  "extendedProperties": null,
+  "parameters": null,
+  "functionType": "rowLevel",
+  "appliesTo": [
+    "main:iQ"
+  ]
+}

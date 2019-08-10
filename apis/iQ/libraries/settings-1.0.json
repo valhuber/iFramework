@@ -1,0 +1,10 @@
+{
+  "name": "settings",
+  "version": "1.0",
+  "isUsedByProject": true,
+  "title": "settings",
+  "description": "This is a JavaScript library",
+  "groupName": "newlib",
+  "docsURL": null,
+  "referenceURL": null
+}

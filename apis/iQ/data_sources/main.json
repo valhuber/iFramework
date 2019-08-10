@@ -1,0 +1,154 @@
+{
+  "name": "main",
+  "prefix": "main",
+  "title": "Derby/JavaDB",
+  "databaseType": "DERBY",
+  "comments": null,
+  "isActive": true,
+  "isLogErrors": false,
+  "isSchemaEditable": true,
+  "isSupportBoolean": false,
+  "useDefinedModel": false,
+  "isReadOnly": false,
+  "useJNDIDataSource": false,
+  "url": "jdbc:derby:iQ",
+  "catalog": null,
+  "schema": "PAVLOV",
+  "username": "PAVLOV",
+  "encryptedPassword": null,
+  "encryptedPasswordSalt": "VP2uqG1nrhzz9byW5GlRjPuxhJN1USgQXrYecK+l",
+  "maximumConnections": 20,
+  "tableExcludes": null,
+  "tableIncludes": null,
+  "procedureExcludes": null,
+  "procedureIncludes": null,
+  "nonPersistentAttributes": {
+  },
+  "tableInfos": {
+  },
+  "viewInfos": {
+  },
+  "procedureInfos": {
+  },
+  "schemaCache": {
+    "serializedSchemaVersion": "Product 5.3.xx.{$espressoBuildNumber} Serialized MetaSchema 60",
+    "prefix": "main",
+    "properties": {
+      "catalog": null,
+      "schema": "PAVLOV",
+      "sqlStrategy": {
+        "sqlStrategyClassName": "com.kahuna.server.db.derby.SqlStrategyDerby",
+        "supportBoolean": false,
+        "databaseProductName": "Apache Derby",
+        "databaseProductVersion": "10.14.1.0 - (1808820)"
+      },
+      "tableViewFilteredCount": 0,
+      "procedureFilteredCount": 0,
+      "supportBoolean": false
+    },
+    "typeDefinitions": {
+      "CLOB": {
+        "modelType": "String",
+        "jdbcSqlType": 2005,
+        "maxLength": 2147483647
+      },
+      "INTEGER": {
+        "modelType": "IntegralNumber",
+        "jdbcSqlType": 4,
+        "numBytes": 4
+      },
+      "TIMESTAMP": {
+        "modelType": "Timestamp",
+        "jdbcSqlType": 93,
+        "precision": 9
+      },
+      "VARCHAR(100)": {
+        "modelType": "String",
+        "jdbcSqlType": 12,
+        "maxLength": 100
+      },
+      "VARCHAR(16)": {
+        "modelType": "String",
+        "jdbcSqlType": 12,
+        "maxLength": 16
+      },
+      "VARCHAR(32)": {
+        "modelType": "String",
+        "jdbcSqlType": 12,
+        "maxLength": 32
+      },
+      "VARCHAR(512)": {
+        "modelType": "String",
+        "jdbcSqlType": 12,
+        "maxLength": 512
+      }
+    },
+    "tables": [
+      {
+        "name": "iQ",
+        "columns": [
+          {
+            "name": "ident",
+            "isAutoIncrement": true,
+            "isDefaulted": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "changed_columns",
+            "isNullable": true,
+            "attrTypeName": "CLOB"
+          },
+          {
+            "name": "target_url",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(100)"
+          },
+          {
+            "name": "status",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(16)"
+          },
+          {
+            "name": "response",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(512)"
+          },
+          {
+            "name": "sync_map_row",
+            "isNullable": true,
+            "attrTypeName": "CLOB"
+          },
+          {
+            "name": "process_call_from_queue_url",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(100)"
+          },
+          {
+            "name": "inserted_date",
+            "isNullable": true,
+            "attrTypeName": "TIMESTAMP"
+          },
+          {
+            "name": "processed_date",
+            "isNullable": true,
+            "attrTypeName": "TIMESTAMP"
+          },
+          {
+            "name": "posted_by",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(32)"
+          }
+        ],
+        "keys": [
+          {
+            "name": "PK_iQ",
+            "isDatabasePrimary": true,
+            "columns": [
+              "ident"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

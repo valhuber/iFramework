@@ -1,0 +1,16 @@
+{
+  "name": "sum_ucrik",
+  "entity": "Epic",
+  "isActive": true,
+  "ruleType": "sum",
+  "attribute": "total_days",
+  "roleToChildren": "Story_List",
+  "childAttribute": "days",
+  "qualification": null,
+  "isJIT": false,
+  "isAutoTitle": true,
+  "title": "total_days = sum(Story_List.days)",
+  "comments": null,
+  "topics": [
+  ]
+}

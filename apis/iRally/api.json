@@ -1,0 +1,7 @@
+{
+  "name": "iRally",
+  "urlFragment": "iRally",
+  "comments": "Virtual Rally",
+  "isEnabled": true,
+  "authProviderName": "Built-in authentication"
+}

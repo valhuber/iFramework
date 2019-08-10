@@ -1,0 +1,10 @@
+{
+  "name": "common_iPack_srcWebhook",
+  "version": "1.0",
+  "isUsedByProject": true,
+  "title": "common_iPack_srcWebhook",
+  "description": "Called by functions to handle webhooks - sync changed row to target resource",
+  "groupName": "newlib",
+  "docsURL": null,
+  "referenceURL": null
+}

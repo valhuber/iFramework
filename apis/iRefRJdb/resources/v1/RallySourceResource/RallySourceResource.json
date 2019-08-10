@@ -1,0 +1,72 @@
+{
+  "name": "RallySourceResource",
+  "description": "Synchronize Innovation Category Features to Jira.  FIXME SysFilter for date?",
+  "siblingRank": 100,
+  "resourceType": "TableBased",
+  "prefix": "dsp_rally",
+  "entity": "Story",
+  "isCollection": true,
+  "filter": null,
+  "order": null,
+  "useSchemaAttributes": false,
+  "attributes": [
+    {
+      "name": "story_name",
+      "attribute": "story_name",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "points",
+      "attribute": "points",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "story_description",
+      "attribute": "story_description",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "feature_ident",
+      "attribute": "ident",
+      "description": null,
+      "isLookupKey": false,
+      "roleToParent": "Feature"
+    },
+    {
+      "name": "feature_name",
+      "attribute": "feature_name",
+      "description": null,
+      "isLookupKey": false,
+      "roleToParent": "Feature"
+    },
+    {
+      "name": "category_ident",
+      "attribute": "category_ident",
+      "description": "TODO better way to filter using parents",
+      "isLookupKey": false,
+      "roleToParent": "Feature"
+    },
+    {
+      "name": "ident",
+      "attribute": "ident",
+      "description": "Convention",
+      "isKey": false
+    },
+    {
+      "name": "last_changed",
+      "attribute": "last_changed",
+      "description": null,
+      "isKey": false
+    },
+    {
+      "name": "assigned_person_name",
+      "attribute": "person_name",
+      "description": null,
+      "isLookupKey": true,
+      "roleToParent": "Person"
+    }
+  ]
+}

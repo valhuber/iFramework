@@ -1,0 +1,12 @@
+{
+  "name": "iQready",
+  "description": "FIXME: this is enormously difficult: add a filter like\n`status` = “Ready”",
+  "siblingRank": 100,
+  "resourceType": "TableBased",
+  "prefix": "main",
+  "entity": "iQ",
+  "isCollection": true,
+  "filter": "",
+  "order": null,
+  "useSchemaAttributes": true
+}

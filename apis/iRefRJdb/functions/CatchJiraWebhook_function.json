@@ -1,0 +1,9 @@
+{
+  "name": "CatchJiraWebhook_function",
+  "isActive": true,
+  "comments": "Sample Data\n[\n  {\n    \"wh_ident\": 1,\n    \"wh_name\": \"Jira Story 2\",\n    \"wh_assigned_ident\": 2,\n    \"wh_epic_ident\": 1,\n    \"wh_last_changed\": \"2019-06-30T21:01:19.511+00:00\",\n    \"wh_changed_by\": 1,\n    \"wh_days\": 2,\n    \"wh_description\": \"Not Rally!\",\n    \"@metadata\": {\n      \"href\": \"http://localhost:8080/rest/default/iRefRJdb/v1/JiraWebhookResource/1\",\n      \"checksum\": \"A:453ed6bf30189e2b\"\n    }\n  }\n]",
+  "returnType": "{\n  \"description\": \"This is an example of the type of data returned by this function\"\n}\n",
+  "extendedProperties": null,
+  "parameters": null,
+  "functionType": "apiLevel"
+}

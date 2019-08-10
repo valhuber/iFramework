@@ -1,0 +1,14 @@
+{
+  "name": "intToken",
+  "authToken": "intToken",
+  "description": "Used by iFramework, special User Identifier used to avoid feedback cycles.",
+  "userIdentifier": "iFramework_user",
+  "isActive": true,
+  "expiration": null,
+  "logging": "*=FINE",
+  "roles": [
+    "Full access"
+  ],
+  "globals": {
+  }
+}

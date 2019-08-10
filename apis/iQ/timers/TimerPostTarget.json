@@ -1,0 +1,14 @@
+{
+  "name": "TimerPostTarget",
+  "isRepeating": true,
+  "startTimestampOffset": null,
+  "endTimestampOffset": null,
+  "isNoOverlap": false,
+  "isActive": false,
+  "description": null,
+  "maximumLogAgeSeconds": 2592000,
+  "isSingleServer": false,
+  "crontab": "/5 * * * * ? *",
+  "isLogErrorOnly": false,
+  "loggingLevel": "Fine"
+}

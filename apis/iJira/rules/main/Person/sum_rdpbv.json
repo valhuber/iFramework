@@ -1,0 +1,16 @@
+{
+  "name": "sum_rdpbv",
+  "entity": "Person",
+  "isActive": true,
+  "ruleType": "sum",
+  "attribute": "days_assigned",
+  "roleToChildren": "Story_List",
+  "childAttribute": "days",
+  "qualification": null,
+  "isJIT": false,
+  "isAutoTitle": true,
+  "title": "days_assigned = sum(Story_List.days)",
+  "comments": null,
+  "topics": [
+  ]
+}

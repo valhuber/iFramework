@@ -1,0 +1,264 @@
+{
+  "name": "rally (future dsp)",
+  "prefix": "dsp_rally",
+  "title": "Derby/JavaDB",
+  "databaseType": "DERBY",
+  "comments": null,
+  "isActive": true,
+  "isLogErrors": false,
+  "isSchemaEditable": true,
+  "isSupportBoolean": false,
+  "useDefinedModel": false,
+  "isReadOnly": false,
+  "useJNDIDataSource": false,
+  "url": "jdbc:derby:iRally",
+  "catalog": null,
+  "schema": "PAVLOV",
+  "username": "PAVLOV",
+  "encryptedPassword": null,
+  "encryptedPasswordSalt": "EYjmRcVDQynQKB2QRzZPUhwblCCu55GNZNcOdKuz",
+  "maximumConnections": 20,
+  "tableExcludes": null,
+  "tableIncludes": null,
+  "procedureExcludes": null,
+  "procedureIncludes": null,
+  "nonPersistentAttributes": {
+  },
+  "tableInfos": {
+  },
+  "viewInfos": {
+  },
+  "procedureInfos": {
+  },
+  "schemaCache": {
+    "serializedSchemaVersion": "Product 5.3.xx.{$espressoBuildNumber} Serialized MetaSchema 60",
+    "prefix": "dsp_rally",
+    "properties": {
+      "catalog": null,
+      "schema": "PAVLOV",
+      "sqlStrategy": {
+        "sqlStrategyClassName": "com.kahuna.server.db.derby.SqlStrategyDerby",
+        "supportBoolean": false,
+        "databaseProductName": "Apache Derby",
+        "databaseProductVersion": "10.14.1.0 - (1808820)"
+      },
+      "tableViewFilteredCount": 0,
+      "procedureFilteredCount": 0,
+      "supportBoolean": false
+    },
+    "typeDefinitions": {
+      "INTEGER": {
+        "modelType": "IntegralNumber",
+        "jdbcSqlType": 4,
+        "numBytes": 4
+      },
+      "TIMESTAMP": {
+        "modelType": "Timestamp",
+        "jdbcSqlType": 93,
+        "precision": 9
+      },
+      "VARCHAR(100)": {
+        "modelType": "String",
+        "jdbcSqlType": 12,
+        "maxLength": 100
+      },
+      "VARCHAR(16)": {
+        "modelType": "String",
+        "jdbcSqlType": 12,
+        "maxLength": 16
+      },
+      "VARCHAR(32)": {
+        "modelType": "String",
+        "jdbcSqlType": 12,
+        "maxLength": 32
+      },
+      "VARCHAR(64)": {
+        "modelType": "String",
+        "jdbcSqlType": 12,
+        "maxLength": 64
+      }
+    },
+    "tables": [
+      {
+        "name": "Category",
+        "columns": [
+          {
+            "name": "ident",
+            "isAutoIncrement": true,
+            "isDefaulted": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "category_name",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(32)"
+          },
+          {
+            "name": "category_description",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(64)"
+          }
+        ],
+        "keys": [
+          {
+            "name": "PK_Category",
+            "isDatabasePrimary": true,
+            "columns": [
+              "ident"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Feature",
+        "columns": [
+          {
+            "name": "ident",
+            "isAutoIncrement": true,
+            "isDefaulted": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "feature_name",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(32)"
+          },
+          {
+            "name": "status",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(16)"
+          },
+          {
+            "name": "owner_ident",
+            "isNullable": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "last_changed",
+            "isNullable": true,
+            "attrTypeName": "TIMESTAMP"
+          },
+          {
+            "name": "changed_by",
+            "isNullable": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "feature_description",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(100)"
+          },
+          {
+            "name": "total_points",
+            "isNullable": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "category_ident",
+            "isNullable": true,
+            "attrTypeName": "INTEGER"
+          }
+        ],
+        "keys": [
+          {
+            "name": "PK_Epic",
+            "isDatabasePrimary": true,
+            "columns": [
+              "ident"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Person",
+        "columns": [
+          {
+            "name": "ident",
+            "isAutoIncrement": true,
+            "isDefaulted": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "person_name",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(64)"
+          },
+          {
+            "name": "points_assigned",
+            "isNullable": true,
+            "attrTypeName": "INTEGER"
+          }
+        ],
+        "keys": [
+          {
+            "name": "PK_Person",
+            "isDatabasePrimary": true,
+            "columns": [
+              "ident"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Story",
+        "columns": [
+          {
+            "name": "ident",
+            "isAutoIncrement": true,
+            "isDefaulted": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "story_name",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(32)"
+          },
+          {
+            "name": "assigned_ident",
+            "isNullable": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "feature_ident",
+            "isNullable": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "last_changed",
+            "isNullable": true,
+            "attrTypeName": "TIMESTAMP"
+          },
+          {
+            "name": "changed_by",
+            "isNullable": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "points",
+            "isNullable": true,
+            "attrTypeName": "INTEGER"
+          },
+          {
+            "name": "story_description",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(64)"
+          },
+          {
+            "name": "changed_by_user",
+            "isNullable": true,
+            "attrTypeName": "VARCHAR(32)"
+          }
+        ],
+        "keys": [
+          {
+            "name": "PK_Story",
+            "isDatabasePrimary": true,
+            "columns": [
+              "ident"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

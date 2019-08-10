@@ -1,0 +1,10 @@
+{
+  "name": "SysConfLib",
+  "version": "1.0",
+  "isUsedByProject": true,
+  "title": "SysConfLib",
+  "description": "URL locations, etc",
+  "groupName": "newlib",
+  "docsURL": null,
+  "referenceURL": null
+}
