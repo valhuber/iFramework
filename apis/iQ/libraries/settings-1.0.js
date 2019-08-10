@@ -1,5 +1,5 @@
 var settings = {
-    iQurl: "http://localhost:8080/iFramework/default/iQ",
+    iQurl: "http://localhost:8080/rest/iFramework/iQ",
     iQToken: {
         'headers': {
             'Authorization': 'CALiveAPICreator iQ:1'
