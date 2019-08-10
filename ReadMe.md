@@ -1,4 +1,4 @@
-# TEAMSPACE
+# iFramework
 Install Instructions:
 1. Login in as sa, and create a teamspace called iFramework.  Use that same name for url and default user.
 2. Shut down LAC
