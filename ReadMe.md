@@ -10,4 +10,5 @@ git clone https://github.com/valhuber/iFramework.git
 4. Initialize your databases (this presumes default jetty.repository install location)
 
 cd apis/iRefRJdb/UserFiles
+
 sh copyDBs.sh
