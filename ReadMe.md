@@ -11,4 +11,3 @@ git clone https://github.com/valhuber/iFramework.git
 
 cd apis/iRefRJdb/UserFiles
 sh copyDBs.sh
-
