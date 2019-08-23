@@ -1,12 +1,12 @@
 {
   "name": "iQready",
-  "description": "FIXME: this is enormously difficult: add a filter like\n`status` = “Ready”",
+  "description": "Heads up: filters are highly dependent on database (quotes and such).",
   "siblingRank": 100,
   "resourceType": "TableBased",
   "prefix": "main",
   "entity": "iQ",
   "isCollection": true,
-  "filter": "",
+  "filter": "\"status\" = 'Ready'",
   "order": null,
   "useSchemaAttributes": true
 }

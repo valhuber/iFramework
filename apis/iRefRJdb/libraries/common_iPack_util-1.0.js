@@ -41,7 +41,7 @@ common_iPack_util.throwError = function throwError(aMsg) {
     var Thread = Java.type('java.lang.Thread');
     Thread.sleep(1000);  // wait for the log messages to print
     print("\n\n*************\n" + aMsg + "\n*************");
-    throw aMsg;    // FIXME how do I find LAC logs in localDev?
+    throw aMsg;    // FIXME (minor internal doc note) - how do I find LAC logs in localDev?
 };
 
 common_iPack_util.removeAttr = function removeAttr(anObject, anAttrName) {  // simple objects only
@@ -144,17 +144,6 @@ common_iPack_util.get_or_create_SyncMapRow = function get_or_create_SyncMapRow(a
             common_iPack_util.computeChangedAttrs(changedValuesAttrName, currValuesAttrName, returnSyncMapRow, aResourceRow);
             returnSyncMapRow[currValuesAttrName] = JSON.stringify(aResourceRow);
             returnSyncMapRow.sync_last_from = syncProps.EntityMapAttr;
-            if ( ! settings.useDirectUpdate ) {
-                print(ttl + "Fetching freshSyncMapRow , url: " + url);
-                // http://localhost:8080/rest/default/iRefRJdb/v1/main:SyncMap/7?checksum=override
-                // {"sync_right_ident":722}
-                // FIXME fails: No such object: main:SyncMap (main:SyncMap[{}]) in resource main:SyncMap
-                responseString = SysUtility.restGet(url, {checkum: "override"}, settings.intToken);
-                response = JSON.parse(responseString);
-                var freshSyncMapRow = response[0];
-                var freshSyncMapRow_Meta = freshSyncMapRow["@metadata"];
-                returnSyncMapRow["@metadata"] = freshSyncMapRow_Meta;
-            }
             responseString = timerUtil.restPut(url, params, settings.intToken, returnSyncMapRow);
             common_iPack_util.printSyncMapRow(ttlSub + "ID["+ aResourceRow.ident + "] found, so UPDATED returnSyncMapRow: ", returnSyncMapRow);
         } catch(e) {

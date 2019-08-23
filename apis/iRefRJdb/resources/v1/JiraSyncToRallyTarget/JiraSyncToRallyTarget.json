@@ -37,7 +37,7 @@
     {
       "name": "src_days",
       "attribute": null,
-      "description": "put event computes points",
+      "description": "put event computes from points",
       "jsonType": "number",
       "isHidden": false
     },

@@ -1,9 +1,10 @@
 var ttl = "processCallFromQueue - ";
 
 
-/*******************************
- * Execution begins here
- * *****************************/
+/***************************************************************
+ * Insert / update target resource, per call from Queue
+ * For inserts, update SyncMap to establish source/target sync
+ ***************************************************************/
 
 var postInfo = {};
  
@@ -34,6 +35,9 @@ if (postInfo.toIdent === null || typeof postInfo.toIdent === "undefined") {
 return;
 
 
+/*
+* Inserts new target resource, and updates syncmap to establish sync between source/target rows
+*/
 function insertNewTargetResource_updateSyncMap(postInfo) {
     var ttlSub = ttl + "- insertNewTargetResource_updateSyncMap - ";
     var responseString = "";
@@ -63,8 +67,11 @@ function insertNewTargetResource_updateSyncMap(postInfo) {
         print(ttlSub + "Posted targetResource, response: " + JSON.stringify(response) + 
             "\n...createdRowID: " + createdRowID +
             "\n...Updating SyncMap for new targetResource, url: " + syncMapUrl + ", updSyncMapPayload: " + JSON.stringify(updSyncMapPayload));
-        responseString = SysUtility.restPut(syncMapUrl, {checksum: "override"}, settings.intToken, updSyncMapPayload);  // fails no such obj (seeking 214)
+        responseString = SysUtility.restPut(syncMapUrl, {checksum: "override"}, settings.intToken, updSyncMapPayload);
         response = JSON.parse(responseString);
+        if (response.statusCode != 201 && response.statusCode != 200) {
+            common_iPack_util.throwError(ttlSub + "bad response updating SyncMap, " + JSON.stringify(response));
+        }
         // print(ttlSub + "ID["+ syncMapRow.ident + "] found, so updated SyncMap: " + JSON.stringify(response));
     } catch(e) {
         common_iPack_util.throwError(ttlSub + "SyncMap Put fails with: " + e);
@@ -72,7 +79,9 @@ function insertNewTargetResource_updateSyncMap(postInfo) {
     
 } 
 
-
+/*
+* update existing target resource (throws error on failure)
+*/
 function updateExistingTargetResource(postInfo) {
     var ttlSub = ttl + "- updateExistingTargetResource - ";
     postInfo.url += "/" + postInfo.toIdent;  // target Row ID
@@ -80,7 +89,7 @@ function updateExistingTargetResource(postInfo) {
     try {
         var targetResourcePayload = postInfo.targetResourcePayload;
         print(ttlSub + "updating existing targetResource using postInfo.url: " + postInfo.url + ", with payload: " + JSON.stringify(targetResourcePayload));
-        responseString = SysUtility.restPut(postInfo.url, {IgnoreUnused: true, checksum:"override"}, settings.intToken, targetResourcePayload);  // FIXME {IgnoreExtraAttributes: true}
+        responseString = SysUtility.restPut(postInfo.url, {IgnoreUnused: true, checksum:"override"}, settings.intToken, targetResourcePayload);  // FIXME DE423914 - IgnoreExtraAttributes: true}
     } catch(e) {
         common_iPack_util.throwError(ttlSub + "targetResource update fails with: " + e);
     }

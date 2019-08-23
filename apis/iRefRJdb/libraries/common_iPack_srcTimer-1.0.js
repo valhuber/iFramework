@@ -5,7 +5,7 @@ var common_iPack_srcTimer = {};  // a common JavaScript technique to name-scope 
 /*
 Called by timers (e.g. Rally iPack Timer) to wake up and scan the Resource definitions,
 finding those that have an ExtendedProperty SynchronizeToTargetResource,
-where the underlying Data Source is as designated (TBD).
+executing closure to determine whether resource is processed.
 
 It executes the Resource, with a filter to find rows that have been changed since the last run.
     TODO: consider user change rapidly updated by iFramework change, prior to timer exec... change lost?
@@ -21,7 +21,8 @@ TODO
 
 */
 
-/*  FIXME - fails with com.kahuna.server.KahunaException: An error occurred while loading JavaScript library common_iPack_srcTimer : ReferenceError: "moment" is not defined in LI2002-common_iPack_srcTime at line number 62
+/*  FIXME DE425634: User Lib fails if using system lib (e.g., moment)
+//        - fails with com.kahuna.server.KahunaException: An error occurred while loading JavaScript library common_iPack_srcTimer : ReferenceError: "moment" is not defined in LI2002-common_iPack_srcTime at line number 62
 var minute = moment().minute();
 var eachInterval = 1; // 10;
 
@@ -31,11 +32,11 @@ if ( (minute % eachInterval) === 0  && moment().seconds() < 5) {
 */
 
 
-common_iPack_srcTimer.timerFindProcessChanges = function timerFindProcessChanges (aMsg) {
+common_iPack_srcTimer.timerFindProcessChanges = function timerFindProcessChanges (aMsg, aSelectorFn) {
     var ttlSub = ttl + "timerFindProcessChanges[" + aMsg + "] - ";
     var theDate = new Date();
     var minute = theDate.getMinutes();
-    var eachInterval = 1; // 10;
+    var eachInterval = 10;
     var doLogHeartbeat = (minute % eachInterval) === 0  && theDate.getSeconds() < 5;
     var rowsProcessed = 0;
     
@@ -47,7 +48,7 @@ common_iPack_srcTimer.timerFindProcessChanges = function timerFindProcessChanges
     var sourceTimer = JSON.parse(sourceTimerString)[0];
 
     try {
-        var sourceResourcesToProcess = findSourceResources();
+        var sourceResourcesToProcess = findSourceResources(aSelectorFn);
         
         for (var i = 0 ; i < sourceResourcesToProcess.length ; i++) {    // read rows, determine changed, post to Q
             var eachSourceResourceToProcess = sourceResourcesToProcess[i];
@@ -74,7 +75,6 @@ common_iPack_srcTimer.timerFindProcessChanges = function timerFindProcessChanges
                     if (rowsProcessed == 1)
                         print("\n\n" + ttlSub + "Started. SourceTimer: " + JSON.stringify(JSON.parse(sourceTimerString)));
                     syncMapRow = common_iPack_util.get_or_create_SyncMapRow(eachSourceResourceToProcess, eachResourceRow);
-                    // var unchangedAttrs = removeUnchangedAttrs(eachResourceRow);  // TODO - we need to update srcRow with iFrameUser, no??
                     var targetResourceName = eachSourceResourceToProcess.extendedProperties[settings.sourceResourceExtPropName].TargetResourceName;
                     common_iPack_util.postChangedAttrsToQueue(syncMapRow, targetResourceName, aMsg);
                 }
@@ -100,7 +100,7 @@ common_iPack_srcTimer.timerFindProcessChanges = function timerFindProcessChanges
 /**
  * returns array of resource definitions that have extProp: settings.sourceResourceExtPropName
  */
-function findSourceResources() {
+function findSourceResources(aSelectorFn) {
     result=[];
     //print(ttl + "..findSourceResources() " + "from settings.svrURL: " + settings.svrURL + "/@resources\n" +
     //     "...using settings.intToken: " + JSON.stringify(settings.intToken));
@@ -119,10 +119,8 @@ function findSourceResources() {
         }
         // on post to ProcessRequestResource, store json into SystemQueue, for async processing via timer
         if (syncProps !== null && typeof syncProps !== 'undefined') {
-            if (eachResourceDef.name.contains("Rally")) { // TODO - ignore if not "for Rally" - inspect root Tbls' DataSource
-                // print(ttl + " ** Rally SourceResource **  " + JSON.stringify(eachResourceDef));
+            if (aSelectorFn(eachResourceDef))
                 result.push(eachResourceDef);
-            }
         } else {
             // print(ttl + " not processed: " + JSON.stringify(eachResourceDef));
         }

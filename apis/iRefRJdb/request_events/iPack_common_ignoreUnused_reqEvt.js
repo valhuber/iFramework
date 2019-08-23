@@ -10,10 +10,10 @@ if (req.verb === 'POST' || req.verb ==="PUT") {
     // ignore cols not in meta data (note: simpler approach is to use req.setUserProperty("IgnoreExtraAttributes", "NonNullValue");... this illustrates utilizing metadata)
     if (extProps && 'object' === typeof extProps && ! Array.isArray(extProps) && extProps.hasOwnProperty('IgnoreUnused') ) {  
         // print("...." + title + req.resourceName + " is designated (per extProps) - to ignore unused columns: " +
-        //     "\n...Config (from library: " + JSON.stringify(Config) +
+        //     "\n...settings.ignoreUnused (from library: " + JSON.stringify(settings.ignoreUnused) +
         //     "\n...payload: " + json);  
-        var resourcesString = SysUtility.restGet(Config.settings.resourceURL + "/@resources",
-                                            {}, Config.settings.authHeader);
+        var resourcesString = SysUtility.restGet(settings.ignoreUnused.resourceURL + "/@resources",
+                                            {}, settings.ignoreUnused.authHeader);
         var resources = JSON.parse(resourcesString);
         var resourceID = 0;
         for each (var eachResource in resources) {  // find the ident of 'me'
@@ -24,8 +24,8 @@ if (req.verb === 'POST' || req.verb ==="PUT") {
         }
         if (resourceID === 0)
             throw "unable to find metadata for resource: " + req.resourceName;
-        var url = Config.settings.resourceURL + "/@resources/" + resourceID;
-        var resourceDefAsString = SysUtility.restGet(Config.settings.resourceURL + "/@resources/" + resourceID, {}, Config.settings.authHeader);
+        var url = settings.ignoreUnused.resourceURL + "/@resources/" + resourceID;
+        var resourceDefAsString = SysUtility.restGet(settings.ignoreUnused.resourceURL + "/@resources/" + resourceID, {}, settings.ignoreUnused.authHeader);
         var resourceDef = JSON.parse(resourceDefAsString);
         var resourceAttributes = resourceDef.attributes;
         // print(title + "resourceAttributes: " + JSON.stringify(resourceAttributes));
@@ -55,7 +55,7 @@ if (req.verb === 'POST' || req.verb ==="PUT") {
             ", revised json: " + json);
     } else {
         //print("...." + title + req.resourceName + " is *not* designated (per extProps) - to ignore unused columns: " +
-        //    ", Config (from library: " + JSON.stringify(Config) +
+        //    ", settings.ignoreUnused (from library: " + JSON.stringify(settings.ignoreUnused) +
         //    ", payload: " + JSON.stringify(JSON.parse(json)));  
     }
 }

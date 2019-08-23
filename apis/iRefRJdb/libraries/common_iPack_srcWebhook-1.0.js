@@ -7,26 +7,25 @@ var common_iPack_srcWebhook = {};  // a common JavaScript technique to name-scop
  * 
  * if (user was iFramework)  // NB - avoid feedback
  *    exit
- * 
- * For each aWebHookResource.attributes where attributes.column_name in aSourceResource.attributes.column_name
- *    attrsOfInterest.push(each); 
- * removeUnchanged();
- * post to Q;
+ * reshape webhookObj (the function payload) -> sourceResourcePayload (using underlying metadata)
+ * if aSelectorFn(sourceResourcePayload)  // closure
+ *    post to Q;
  *  
  ****************************************
 */
 
-common_iPack_srcWebhook.handleWebhook = function handleWebhook(aPayload, aWebhookResource, aSourceResource, aMsg) {
-    var payloadObj = JSON.parse(aPayload);
+common_iPack_srcWebhook.handleWebhook = function handleWebhook(aPayload, aWebhookResource, aSourceResource, aMsg, aSelectorFn) {
+    var webhookObj = JSON.parse(aPayload);
     var ttlSub = ttl + "handleWebhook - ";
-    if (payloadObj[settings.webhookUserPropName] == settings.webhookUserPropValue) {
-        print(ttlSub + "skipping iFramework user (avoid feedback), aPayload: " + JSON.stringify(payloadObj));
+
+    if (webhookObj[settings.webhookUserPropName] == settings.webhookUserPropValue) {
+        print(ttlSub + "skipping iFramework user (avoid feedback), aPayload (webhookObj): " + JSON.stringify(webhookObj));
     } else {
-        print(ttlSub + "running, aPayload: " + JSON.stringify(payloadObj));
+        // print(ttlSub + "running, reshaping aWebhookResource[" + aWebhookResource + " ==> " + aSourceResource + "], req: " + JSON.stringify(webhookObj));
         var webhookResource = common_iPack_util.getResourceNamed(aWebhookResource);
         var sourceResource = common_iPack_util.getResourceNamed(aSourceResource);
         var webhookResourceAttrs = webhookResource.attributes;
-        var interestPayload = {};
+        var sourceResourcePayload = {};  // interestPayload
         var notOfInterest = [];
         for (var i = 0 ; i < webhookResourceAttrs.length ; i++) {
             var eachWebhookAttr = webhookResourceAttrs[i];
@@ -35,15 +34,19 @@ common_iPack_srcWebhook.handleWebhook = function handleWebhook(aPayload, aWebhoo
                 notOfInterest.push(eachWebhookAttr);
             } else {
                 var interestAttr = {};
-                interestPayload[sourceAttr.name] = payloadObj[eachWebhookAttr.name];
+                sourceResourcePayload[sourceAttr.name] = webhookObj[eachWebhookAttr.name];
             }
         }
-        print(ttlSub + "interestPayload: " + JSON.stringify(interestPayload) +
-            "\n... notOfInterest: " + JSON.stringify(notOfInterest) +
-            "\n... aSourceResource: " + JSON.stringify(sourceResource));
-        var syncMapRow = common_iPack_util.get_or_create_SyncMapRow(sourceResource, interestPayload);
-        var targetResourceName = sourceResource.extendedProperties[settings.sourceResourceExtPropName].TargetResourceName;
-        common_iPack_util.postChangedAttrsToQueue(syncMapRow, targetResourceName, aMsg);
+        if (aSelectorFn(sourceResourcePayload)) {
+            print(ttlSub + "selected.. sourceResourcePayload: " + JSON.stringify(sourceResourcePayload) +
+                "\n... notOfInterest: " + JSON.stringify(notOfInterest) +
+                "\n... aSourceResource: " + JSON.stringify(sourceResource));
+            var syncMapRow = common_iPack_util.get_or_create_SyncMapRow(sourceResource, sourceResourcePayload);
+            var targetResourceName = sourceResource.extendedProperties[settings.sourceResourceExtPropName].TargetResourceName;
+            common_iPack_util.postChangedAttrsToQueue(syncMapRow, targetResourceName, aMsg);
+        } else {
+            print(ttlSub + ".. not selected");
+        }
     }
 };
 
