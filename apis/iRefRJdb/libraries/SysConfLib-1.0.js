@@ -1,17 +1,3 @@
-/*
-var Config = {  // TODO move into settings
-    created: new Date(),
-    settings: {
-        loadedBy: "ConfLib default settings",
-        resourceURL: "http://localhost:8080/rest/iFramework/iRefRJdb/v1",
-        authHeader: {
-            'headers': {
-                'Authorization': 'CALiveAPICreator intToken:1'
-            }
-        }
-    }
-};
-*/
 var settings = {   // FIXME timers don't have access to req.localFullBaseURL, so....?
     useDirectUpdate: true,  // FIXME DE423915 runtime failing for direct updates.
     svrURL: "http://localhost:8080/rest/iFramework/iRefRJdb",
