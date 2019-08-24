@@ -5,7 +5,7 @@ This is the LAC-based integration framework, G2, based on G1 by Kristy.
 
 ## Install Instructions:
 1. Shut down LAC
-2. Install (this will create a teamspace and user called iFramework:
+2. Install Process (this will create a teamspace and user called iFramework:
 ```
 cd /%lac-install%/CALiveAPICreator/jetty.repository/teamspaces  
 git clone https://github.com/valhuber/iFramework.git  
