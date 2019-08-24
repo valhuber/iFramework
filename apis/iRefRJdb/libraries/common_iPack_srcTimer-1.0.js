@@ -5,7 +5,7 @@ var common_iPack_srcTimer = {};  // a common JavaScript technique to name-scope 
 /*
 Called by timers (e.g. Rally iPack Timer) to wake up and scan the Resource definitions,
 finding those that have an ExtendedProperty SynchronizeToTargetResource,
-executing closure to determine whether resource is processed.
+executing closure aSelectorFn to determine whether resource is processed.
 
 It executes the Resource, with a filter to find rows that have been changed since the last run.
     TODO: consider user change rapidly updated by iFramework change, prior to timer exec... change lost?
