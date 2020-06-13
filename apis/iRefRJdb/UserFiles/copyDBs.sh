@@ -5,4 +5,4 @@ cp -a ./iq ../../../../../../
 cp -a ./iRally ../../../../../../
 cp -a ./iReferenceJR ../../../../../../
 
-* copy complete
+# copy complete
